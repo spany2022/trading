@@ -6,17 +6,18 @@ import { btn, DemoNote, SectionHeader, delay } from "@/components/ui/primitives"
 import { DownloadCta } from "@/components/ui/Cta";
 
 function PdfMockup() {
-  const modules = site.syllabus.modules.slice(0, 6);
+  const total = site.syllabus.modules.length;
+  const modules = site.syllabus.modules.slice(0, 4);
   return (
     <div className="group relative mx-auto w-full max-w-[400px] [perspective:1400px]" aria-hidden>
       <div className="absolute inset-0 translate-x-6 translate-y-5 rotate-6 rounded-2xl border border-line bg-card/70" />
       <div className="absolute inset-0 translate-x-3 translate-y-2.5 rotate-3 rounded-2xl border border-line bg-card" />
-      <div className="relative aspect-[1/1.414] overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(160deg,#16203a,#0b1020_65%)] p-7 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] transition-transform duration-700 [transform:rotateY(-8deg)_rotateX(4deg)] group-hover:[transform:rotateY(0deg)_rotateX(0deg)]">
+      <div className="relative flex aspect-[1/1.414] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(160deg,#16203a,#0b1020_65%)] p-6 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] transition-transform duration-700 [transform:rotateY(-8deg)_rotateX(4deg)] group-hover:[transform:rotateY(0deg)_rotateX(0deg)]">
         <div className="flex items-center justify-between">
           <LogoMark className="size-7" />
           <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted">Syllabus</span>
         </div>
-        <p className="mt-10 font-mono text-[9px] uppercase tracking-[0.2em] text-mint">Course guide</p>
+        <p className="mt-8 font-mono text-[9px] uppercase tracking-[0.2em] text-mint">Course guide</p>
         <p className="mt-2 font-display text-[26px] leading-[1.05] font-bold tracking-tight">
           Trading
           <br />
@@ -24,19 +25,22 @@ function PdfMockup() {
           <br />
           <span className="text-gradient">Program</span>
         </p>
-        <svg viewBox="0 0 200 40" className="mt-6 w-full" fill="none">
+        <svg viewBox="0 0 200 40" className="mt-5 w-full" fill="none">
           <path d="M0 32 L20 28 L36 30 L54 22 L72 25 L92 16 L110 19 L130 10 L150 14 L172 6 L200 8" stroke="#3B82F6" strokeWidth="1.5" />
         </svg>
-        <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
+        <ul className="mt-5 space-y-2 border-t border-white/10 pt-4">
           {modules.map((m, i) => (
-            <li key={m.title} className="flex items-baseline gap-3 text-[11px]">
-              <span className="font-mono text-mint">{String(i + 1).padStart(2, "0")}</span>
-              <span className="text-fg/85">{m.title}</span>
+            <li key={m.title} className="flex min-w-0 items-baseline gap-3 text-[11px]">
+              <span className="shrink-0 font-mono text-mint">{String(i + 1).padStart(2, "0")}</span>
+              <span className="truncate text-fg/85">{m.title}</span>
             </li>
           ))}
+          {total > modules.length && (
+            <li className="pl-[1.6rem] font-mono text-[10px] text-muted">+ {total - modules.length} more modules</li>
+          )}
         </ul>
-        <p className="absolute right-7 bottom-6 left-7 flex justify-between font-mono text-[8.5px] uppercase tracking-[0.18em] text-muted">
-          <span>{site.syllabus.modules.length} modules</span>
+        <p className="mt-auto flex justify-between border-t border-white/10 pt-3 font-mono text-[8.5px] uppercase tracking-[0.18em] text-muted">
+          <span>{total} modules</span>
           <span>PDF</span>
         </p>
       </div>

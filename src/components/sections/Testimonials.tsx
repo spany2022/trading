@@ -5,6 +5,12 @@ import { T } from "@/components/ui/T";
 import { DemoNote, SectionHeader } from "@/components/ui/primitives";
 import { Carousel } from "@/components/ui/Carousel";
 
+const avatarTone = [
+  "bg-gradient-to-br from-mint to-mint-deep text-on-mint",
+  "bg-gradient-to-br from-azure to-[#1d4ed8] text-white",
+  "bg-gradient-to-br from-gold to-[#a8873f] text-on-mint",
+];
+
 export function Testimonials() {
   return (
     <section id="results" aria-labelledby="results-title" className="overflow-hidden bg-paper py-24 text-paper-ink sm:py-32">
@@ -29,11 +35,17 @@ export function Testimonials() {
               >
                 <header className="flex items-center gap-4">
                   {t.photo ? (
-                    <Image src={t.photo} alt="" width={56} height={56} className="size-14 rounded-full object-cover" />
+                    <Image
+                      src={t.photo}
+                      alt=""
+                      width={112}
+                      height={112}
+                      className="size-14 shrink-0 rounded-full object-cover ring-2 ring-white shadow-[0_0_0_3px_rgba(11,122,90,0.25)]"
+                    />
                   ) : (
                     <span
                       aria-hidden
-                      className="grid size-14 place-items-center rounded-full bg-gradient-to-br from-card to-ink font-display text-lg font-bold text-fg"
+                      className={`grid size-14 shrink-0 place-items-center rounded-full font-display text-lg font-bold ring-2 ring-white shadow-[0_0_0_3px_rgba(23,32,51,0.08)] ${avatarTone[i % avatarTone.length]}`}
                     >
                       {t.initials}
                     </span>
@@ -42,11 +54,12 @@ export function Testimonials() {
                     <h3 className="font-display text-[17px] leading-snug font-bold">
                       <T>{t.name}</T>
                     </h3>
-                    <p className="mt-0.5 text-[13px] text-paper-muted">
-                      Before joining: <T>{t.before}</T>
-                    </p>
+                    {t.city && <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-mint-deep">{t.city}</p>}
                   </div>
                 </header>
+                <p className="mt-4 text-[13px] text-paper-muted">
+                  Before joining: <T>{t.before}</T>
+                </p>
 
                 <blockquote className="relative mt-6 flex-1 text-[16px] leading-relaxed">
                   <Quote aria-hidden className="mb-3 size-6 text-gold" />

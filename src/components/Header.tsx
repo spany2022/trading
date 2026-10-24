@@ -45,8 +45,8 @@ export function Header() {
       >
         Skip to content
       </a>
-      <div className="container-x flex h-16 items-center justify-between gap-4">
-        <a href="#top" aria-label="Back to top" className="shrink-0">
+      <div className="container-x flex h-16 items-center justify-between gap-3">
+        <a href="#top" aria-label="Back to top" className="min-w-0">
           <Logo />
         </a>
 
@@ -65,7 +65,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <DownloadCta
             location="header"
             className="hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-fg md:inline-flex"

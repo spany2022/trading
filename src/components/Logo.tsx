@@ -18,10 +18,15 @@ export function LogoMark({ className = "size-8" }: { className?: string }) {
 
 export function Logo() {
   return (
-    <span className="flex items-center gap-2.5">
-      <LogoMark />
-      <span className="font-display text-[15px] font-bold tracking-[-0.02em] text-fg">
-        <T>{site.brand.name}</T>
+    <span className="flex min-w-0 items-center gap-2.5">
+      <LogoMark className="size-8 shrink-0" />
+      <span className="truncate font-display text-[15px] font-bold tracking-[-0.02em] text-fg">
+        <span className="sm:hidden">
+          <T>{site.brand.short}</T>
+        </span>
+        <span className="hidden sm:inline">
+          <T>{site.brand.name}</T>
+        </span>
       </span>
     </span>
   );

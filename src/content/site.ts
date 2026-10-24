@@ -41,6 +41,7 @@ export type SyllabusModule = {
 export type Testimonial = {
   name: string;
   initials: string;
+  city?: string;
   photo?: string | null;
   before: string;
   quote: string;
@@ -53,6 +54,8 @@ const demoMode = true;
 
 const brand = {
   name: "Margdarshak Trading Academy",
+  /** Shown in the navbar on phones, where the full name doesn't fit. */
+  short: "Margdarshak",
   program: "Trading Mentorship Program",
   tagline: "A structured, process-first trading education.",
 };
@@ -319,7 +322,8 @@ export const site = {
 
   testimonials: [
     {
-      name: "Priya Sharma · Bengaluru",
+      name: "Priya Sharma",
+      city: "Bengaluru",
       initials: "PS",
       before: "Complete beginner, software engineer",
       quote:
@@ -328,7 +332,8 @@ export const site = {
       milestone: "Completed all 8 module exercises and the final process review",
     },
     {
-      name: "Arjun Nair · Kochi",
+      name: "Arjun Nair",
+      city: "Kochi",
       initials: "AN",
       before: "Self-taught, 1 year of charting",
       quote:
@@ -337,7 +342,8 @@ export const site = {
       milestone: "Submitted 20 reviewed trade plans during the batch",
     },
     {
-      name: "Sneha Kulkarni · Pune",
+      name: "Sneha Kulkarni",
+      city: "Pune",
       initials: "SK",
       before: "Chartered accountant, part-time learner",
       quote:

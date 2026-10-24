@@ -106,6 +106,9 @@
 .js [data-reveal].is-in {
   opacity: 1;
   transform: none;
+}
+/* Only the image mask is clipped; clipping text blocks would shave glyphs at their edges. */
+.js [data-reveal="mask"].is-in {
   clip-path: inset(0 0 0 0 round 1.5rem);
 }
 
